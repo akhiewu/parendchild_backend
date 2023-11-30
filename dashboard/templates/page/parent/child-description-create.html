@@ -30,8 +30,8 @@
                     <button type="button" class="step-trigger">
                       <span class="bs-stepper-box">1</span>
                       <span class="bs-stepper-label">
-                        <span class="bs-stepper-title">Vision Details</span>
-                        <span class="bs-stepper-subtitle">Setup Vision Details</span>
+                        <span class="bs-stepper-title">Child Details</span>
+                        <span class="bs-stepper-subtitle">Setup Child Details</span>
                       </span>
                     </button>
                   </div>
@@ -53,29 +53,29 @@
                 <div class="bs-stepper-content">
                   <div id="account-details" class="content" role="tabpanel" aria-labelledby="account-details-trigger">
                     <div class="content-header">
-                      <h5 class="mb-0">Vision</h5>
-                      <small class="text-muted">Vision Details.</small>
+                      <h5 class="mb-0">Child</h5>
+                      <small class="text-muted">Child Details.</small>
                     </div>
                     <form method="POST" enctype="multipart/form-data">
-                      {% csrf_token %}
+                      {% comment %} {% csrf_token %}
                       <div class="row">
                         <div class="mb-1 col-md-12">
                           <div class="form-control">
                           {{ form.icon }}
                           </div>
                         </div>
-                      </div>
+                      </div> {% endcomment %}
                       <div class="row">
                         <div class="mb-1 col-md-12">
                           <div class="form-control">
-                          {{ form.title }}
+                          {{ form.first_name }}
                           </div>
                         </div>
                       </div>
                       <div class="row">
                           <div class="mb-1 col-md-12">
                             <div class="form-control">
-                            {{ form.description }}
+                            {{ form.last_name }}
                             </div>
                           </div>
                       </div>

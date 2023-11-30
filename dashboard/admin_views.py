@@ -162,30 +162,30 @@ def parent_details(request, id):
     return render(request, 'page/parent/parent-details.html', context)
 
 
-# ............***............ Vision Description ............***............
+# ............***............ Child Description ............***............
 
 @login_required()
-def vision_description_list(request):
-    vision_description_list_qs = VisionDescription.objects.all()
-    page_title = 'Vision Description List'
-    is_vision_description = False
-    if vision_description_list_qs.count() > 0:
-        is_vision_description = True
+def child_description_list(request):
+    child_description_list_qs = Child.objects.all()
+    page_title = 'child Description List'
+    is_child_description = False
+    if child_description_list_qs.count() > 0:
+        is_child_description = True
 
     company_qs = Company.objects.all().last()
     context = {
         'company_qs': company_qs,
         'page_title': page_title,
-        'vision_description_list_qs': vision_description_list_qs,
-        'is_vision_description' : is_vision_description
+        'child_description_list_qs': child_description_list_qs,
+        'is_child_description' : is_child_description
     }
-    return render(request, 'page/vision/vision-description-list.html', context)
+    return render(request, 'page/parent/child-description-list.html', context)
 
 
 @login_required
-def vision_description_create(request):
-    page_title = 'Vision Description Create'
-    form = VisionDescriptionManageForm(request.POST)
+def child_description_create(request):
+    page_title = 'Child Description Create'
+    form = ChildDescriptionManageForm(request.POST)
 
     company_qs = Company.objects.all().last()
     context = {
@@ -194,26 +194,25 @@ def vision_description_create(request):
         'form': form
     }
     if request.method == 'POST':
-        title = request.POST.get("title")
-        description = request.POST.get("description")
-        icon = request.FILES["icon"]
-        vision_description_qs = VisionDescription.objects.create(
-            title=title,description=description, icon=icon
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+        child_description_qs = Child.objects.create(
+            first_name=first_name,last_name=last_name,
         )
-        vision_qs = Vision.objects.all().last()
-        if vision_qs:
-            vision_description_qs.vision = vision_qs
-            vision_description_qs.save()
-        return HttpResponseRedirect(reverse('vision_description_list'))
-    return render(request, 'page/vision/vision-description-create.html', context)
+        parent_qs = Parent.objects.all().last()
+        if parent_qs:
+            child_description_qs.vision = parent_qs
+            child_description_qs.save()
+        return HttpResponseRedirect(reverse('child_description_list'))
+    return render(request, 'page/parent/child-description-create.html', context)
 
 
 
 @login_required
-def vision_description_update(request, id):
-    vision_description_qs = VisionDescription.objects.filter(pk = id).last()
-    page_title = 'Vision Description Update'
-    form = VisionDescriptionManageForm(instance=vision_description_qs)
+def child_description_update(request, id):
+    child_description_qs = Child.objects.filter(pk = id).last()
+    page_title = 'Child Description Update'
+    form = ChildDescriptionManageForm(instance=child_description_qs)
 
     company_qs = Company.objects.all().last()
     context = {
@@ -222,30 +221,30 @@ def vision_description_update(request, id):
         'form': form
     }
     if request.method == 'POST':
-        form = VisionDescriptionManageForm(request.POST, request.FILES,
-                              instance=vision_description_qs)
+        form = ChildDescriptionManageForm(request.POST, request.FILES,
+                              instance=child_description_qs)
         if form.is_valid():
             form.save()
-        vision_description_qs.title = request.POST.get('title')
-        vision_description_qs.description = request.POST.get('description')
-        vision_qs = Vision.objects.all().last()
-        if vision_qs:
-            vision_description_qs.vision = vision_qs
-        vision_description_qs.save()
-        return HttpResponseRedirect(reverse('vision_description_list'))
-    return render(request, 'page/vision/vision-description-create.html', context)
+        child_description_qs.first_name = request.POST.get('first_name')
+        child_description_qs.last_name = request.POST.get('last_name')
+        parent_qs = Parent.objects.all().last()
+        if parent_qs:
+            child_description_qs.vision = parent_qs
+        child_description_qs.save()
+        return HttpResponseRedirect(reverse('child_description_list'))
+    return render(request, 'page/parent/child-description-create.html', context)
 
 
 @login_required
-def vision_description_details(request, id):
-    vision_description_qs = VisionDescription.objects.filter(pk = id).last()
-    page_title = 'Vision Description Details'
+def child_description_details(request, id):
+    child_description_qs = Child.objects.filter(pk = id).last()
+    page_title = 'Child Description Details'
 
     company_qs = Company.objects.all().last()
     context = {
         'company_qs': company_qs,
         'page_title': page_title,
-        'vision_description_qs': vision_description_qs
+        'child_description_qs': child_description_qs
     }
-    return render(request, 'page/vision/vision-description-details.html', context)
+    return render(request, 'page/parent/child-description-details.html', context)
 

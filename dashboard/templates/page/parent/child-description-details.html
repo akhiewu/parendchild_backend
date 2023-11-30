@@ -20,26 +20,27 @@
                             <!-- User Card -->
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="fw-bolder border-bottom pb-50 mb-1">About Vision Details</h4>
+                                    <h4 class="fw-bolder border-bottom pb-50 mb-1">About Child Details</h4>
                                     <div class="info-container">
-                                        <ul class="list-unstyled">
-                                            {% if vision_description_qs.icon %}
+                                        {% comment %} <ul class="list-unstyled">
+                                            {% if child_description_qs.icon %}
                                             <li class="mb-75">
                                                 <span class="fw-bolder me-25">
                                                     <img src="{{ vision_description_qs.icon.url }}" alt="" style="height:150px; width:100%">
                                                 </span>
                                             </li>
-                                            {% endif %}
+                                            {% endif %} {% endcomment %}
                                             <li class="mb-75">
-                                                <span class="fw-bolder me-25">Title:</span>
-                                                <span class="fw-bolder me-25">{{ vision_description_qs.title }}</span>
+                                                <span class="fw-bolder me-25">First Name:</span>
+                                                <span class="fw-bolder me-25">{{ child_description_qs.first_name }}</span>
                                                 
                                             </li>
                                             
                                             
                                             <li class="mb-75">
-                                                <span class="fw-bolder me-25">Description:</span>
-                                                <span>{{ vision_description_qs.description }}</span>
+                                                <span class="fw-bolder me-25">Last Name:</span>
+                                                <span class="fw-bolder me-25">{{ child_description_qs.last_name }}</span>
+                                                
                                             </li>
                                             
 
