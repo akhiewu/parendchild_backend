@@ -7,8 +7,11 @@ from django.core.mail import EmailMultiAlternatives
 from django.core.mail import send_mail
 from datetime import datetime
 from django.utils import timezone
-
 from django.conf import settings
+from rest_framework import generics
+from .models import Parent, Child
+from .serializers import ParentSerializer, ChildDescriptionSerializer
+
 
 
 
@@ -34,3 +37,19 @@ from django.conf import settings
 #         return self.serializer_class
     
  
+
+class ParentListCreateView(generics.ListCreateAPIView):
+    queryset = Parent.objects.all()
+    serializer_class = ParentSerializer
+
+class ParentDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Parent.objects.all()
+    serializer_class = ParentSerializer
+
+class ChildListCreateView(generics.ListCreateAPIView):
+    queryset = Child.objects.all()
+    serializer_class = ChildDescriptionSerializer
+    
+class ChildDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Child.objects.all()
+    serializer_class = ChildDescriptionSerializer     

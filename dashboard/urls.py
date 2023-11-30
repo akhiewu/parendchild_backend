@@ -27,7 +27,17 @@ admin_panel_urlpatterns = [
 ]    
  
 
-urlpatterns =[
-   # path('home_details/', CompanyViewSet.as_view({'get': 'home_details'}), name="home_details"),
+# urlpatterns =[
+#    # path('home_details/', CompanyViewSet.as_view({'get': 'home_details'}), name="home_details"),
     
-]+ admin_panel_urlpatterns 
+# ]+ admin_panel_urlpatterns 
+
+
+from .views import ParentListCreateView, ParentDetailView, ChildListCreateView, ChildDetailView
+
+urlpatterns = [
+    path('parents/', ParentListCreateView.as_view(), name='parent-list'),
+    path('parents/<int:pk>/', ParentDetailView.as_view(), name='parent-detail'),
+    path('children/', ChildListCreateView.as_view(), name='child-list'),
+    path('children/<int:pk>/', ChildDetailView.as_view(), name='child-detail'),
+]
