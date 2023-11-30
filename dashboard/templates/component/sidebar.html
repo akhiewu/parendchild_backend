@@ -1,0 +1,97 @@
+{% load static %}
+
+    <!-- BEGIN: Main Menu-->
+    <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item me-auto"><a class="navbar-brand" href=""><span class="brand-logo" style="">
+                            <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24" >
+                                <defs>
+                                    <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
+                                        <stop stop-color="#000000" offset="0%"></stop>
+                                        <stop stop-color="#FFFFFF" offset="100%"></stop>
+                                    </lineargradient>
+                                    <lineargradient id="linearGradient-2" x1="64.0437835%" y1="46.3276743%" x2="37.373316%" y2="100%">
+                                        <stop stop-color="#EEEEEE" stop-opacity="0" offset="0%"></stop>
+                                        <stop stop-color="#FFFFFF" offset="100%"></stop>
+                                    </lineargradient>
+                                </defs>
+
+<!--                                <img src="{% static 'dashboard/app-assets/images/ico/favicon.svg' %}" alt="" style="height:50px; width:130px;">-->
+                                <img src="{{ company_qs.logo.url }}" alt="" style="height:50px; width:auto">
+
+                            </svg>
+                          </span>
+                        <h2 class="brand-text"></h2>
+                    </a>
+                </li>
+                <li class="nav-item nav-toggle">
+                    <a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse">
+                        <i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i>
+                        <i class="d-none d-xl-block collapse-toggle-icon font-medium-4  text-primary" data-feather="disc" data-ticon="disc">
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- <div class="shadow-bottom"></div> -->
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" style="margin-top:50%;">
+                <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'index' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Company</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'slider_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Slider</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'mission_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Mission</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href=""><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Vision</span></a>
+                <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                    <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'vision_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Vision</span></a>
+                    </li>
+                    <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'vision_description_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Vision Description</span></a>
+                    </li>
+                </ul>
+
+                <li class=" nav-item"><a class="d-flex align-items-center" href=""><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Services</span></a>
+                    <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                        <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'department_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Services</span></a>
+                        </li> 
+                         <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'department_description_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Services Description</span></a>
+                         </li>
+               
+            </ul>
+            <li class=" nav-item"><a class="d-flex align-items-center" href=""><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Team</span></a>
+                <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                    <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'team_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Team</span></a>
+                    </li>
+                    <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'team_description_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Team Description</span></a>
+                    </li>
+                </ul>
+                <li class=" nav-item"><a class="d-flex align-items-center" href=""><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Client</span></a>
+                    <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                        <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'client_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Client</span></a>
+                        </li>
+                        <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'client_description_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Client Description</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href=""><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Career</span></a>
+                    <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                        
+                        <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'career_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Career</span></a>
+                        </li>
+                        <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'job_circular_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Job Circular</span></a>
+                        </li>
+                        <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'drop_cv_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Drop CV</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'contact_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Contact</span></a>
+                </li>
+
+                <li class=" nav-item"><a class="d-flex align-items-center" href="{% url 'news_letter_list' %}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">News Letter</span></a>
+                </li>
+        </div>
+
+    </div>
+    <!-- END: Main Menu-->
+    

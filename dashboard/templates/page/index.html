@@ -1,0 +1,33 @@
+{% load static %}
+{% include "base.html" %}
+{% load custom_tags %}
+
+{% block content %}
+
+  <!-- BEGIN: Content-->
+    <div class="app-content content ">
+      <div class="content-overlay"></div>
+      <div class="header-navbar-shadow"></div>
+      <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+          <!-- Coming soon page-->
+          <div class="misc-wrapper"><a class="brand-logo" href="index.html">
+              <svg viewBox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
+              </svg>
+              <h2 class="brand-text text-primary ms-1"></h2></a>
+            <div class="misc-inner p-2 p-sm-3">
+              <div class="w-100 text-center">
+                <h2 class="mb-1">Coming Soon 🚀</h2>
+                <p class="mb-3">We're creating something awesome.
+                    Please subscribe to get notified when it's ready!</p>
+                </div>
+            </div>
+          </div>
+          <!-- / Coming soon page-->
+        </div>
+      </div>
+    </div>
+    <!-- END: Content-->
+{% endblock %}

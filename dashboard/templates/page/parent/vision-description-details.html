@@ -1,0 +1,61 @@
+{% load static %}
+{% include "base.html" %}
+
+{% block content %}
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper container-xxl p-0">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <section class="app-user-view-account">
+                    <div class="row">
+                        <!-- User Sidebar -->
+                        <div class="col-xl-3 col-lg-3 col-md-3 order-1 order-md-0">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 order-1 order-md-0">
+                            <!-- User Card -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="fw-bolder border-bottom pb-50 mb-1">About Vision Details</h4>
+                                    <div class="info-container">
+                                        <ul class="list-unstyled">
+                                            {% if vision_description_qs.icon %}
+                                            <li class="mb-75">
+                                                <span class="fw-bolder me-25">
+                                                    <img src="{{ vision_description_qs.icon.url }}" alt="" style="height:150px; width:100%">
+                                                </span>
+                                            </li>
+                                            {% endif %}
+                                            <li class="mb-75">
+                                                <span class="fw-bolder me-25">Title:</span>
+                                                <span class="fw-bolder me-25">{{ vision_description_qs.title }}</span>
+                                                
+                                            </li>
+                                            
+                                            
+                                            <li class="mb-75">
+                                                <span class="fw-bolder me-25">Description:</span>
+                                                <span>{{ vision_description_qs.description }}</span>
+                                            </li>
+                                            
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /User Card -->
+
+                        </div>
+                        <!--/ User Sidebar -->
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- END: Content-->
+{% endblock %}

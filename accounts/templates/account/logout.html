@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% trans "Logout" %}
+{% block content %}
+<div class="app-content content ">
+  <div class="content-overlay"></div>
+  <div class="header-navbar-shadow"></div>
+  <div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+      <!-- Basic and Outline Pills start -->
+      <section id="basic-and-outline-pills">
+        <div class="row match-height">
+
+          <!-- Basic pills starts -->
+
+            <!-- User Sidebar -->
+            <div class="col-xl-3 col-lg-3 col-md-3 order-1 order-md-0">
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 order-1 order-md-0">
+            <!-- Create Button -->
+            </div>
+          <form method="post" action="{% url 'account_logout' %}" data-toggle="validator">
+              {% csrf_token %}
+            <div class="row">
+            <div class="col-6">
+                  <ul class="nav nav-pills mb-2">
+                      <li class="nav-item">
+                          <a class="nav-link">
+                              <span class="fw-bold">
+                                <button   class="btn btn-danger"  type="submit">{% trans 'Yes, Logout' %}
+                                </button>
+                              </span></a>
+                      </li>
+                  </ul>
+            </div>
+              <div class="col-6">
+                  <ul class="nav nav-pills mb-2">
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'index' %}">
+                              <span class="fw-bold">
+                                <button  class="btn btn-success" type="submit">No</button>
+                              </span></a>
+                      </li>
+                  </ul>
+              </div>
+              </div>
+          </form>
+
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

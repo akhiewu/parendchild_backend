@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+
+{% include "component/styles.html" %}
+
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
+{% include "component/header.html" %}
+
+{% include "component/sidebar.html" %}
+
+{% block content %}
+
+{% endblock %}
+
+<!--&lt;!&ndash; BEGIN: Customizer&ndash;&gt;-->
+<!--  {% include "component/theam_customizer.html" %}-->
+<!--  &lt;!&ndash; End: Customizer&ndash;&gt;-->
+<div class="sidenav-overlay"></div>
+<div class="drag-target"></div>
+
+{% include "component/footer.html" %}
+
+{% include "component/js.html" %}
+</body>
+<!-- END: Body-->
+
+</html>
